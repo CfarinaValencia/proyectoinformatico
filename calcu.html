@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Empresa HVG</title>
+  <meta content="" name="description">
+
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/faviconn.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="calcu.css"  rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: FlexStart - v1.9.0
+  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/faviconn.png" alt="">
+        <span>HVG</span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+     
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <br>
+  <br>
+  <br>
+ <h3 id="titulo">¿Cómo calcular lo que debo pagar de seguridad social?</h3>
+ <h2 id="sub">Para hacer este cálculo es fundamental determinar el valor del IBC sobre el que cotizarás,<br> el cual puedes consultar con tu empleador, o si eres trabajador independiente será del 40% de tus ingresos.</h2>
+  
+  
+ <div class="container border mt-5 text-center bg-primary p-5 rounded-1">
+  <h1 class="mb-5 text-white">Calculadora Seguridad Social</h1>
+  <!--Valor del IBC-->
+  <label class="mb-3 text-white">Valor IBC </label> <input type="number" id="IBC" step="0.001" 
+  oninput="calcular_salud(),calcular_pension(),calcular_arl1(),
+  calcular_arl2(),calcular_arl3(),calcular_arl4(),calcular_arl5(),calcular_pago_total()" >
+  <br>
+  <!--Salud 0.125-->
+  <select class="" aria-label="Default select example" id="combobox2">
+  <option selected  id="salud">Salud 12%</option>
+</select>
+<!--total pension-->
+ <input type="number" id="salud-total" step="0.001" oninput="calcular_salud()">
+ <br>
+ <br>
+ <!--pension 0.16-->
+ <select class="" aria-label="Default select example" id="combobox2">
+ <option selected  id="pension">Pension 16%</option>
+</select>
+
+<!--total de pension-->
+<input type="number" id="pension-total" step="0.001" oninput="calcular_pension()">
+<br>
+<!--ARL-->
+<br>
+  <select class="" aria-label="Default select example" id="select-arl">
+  <option selected  id="arl-ninguno">Ninguno - 0%</option>
+  <option selected  id="arl-1">Nivel I: 0,00522</option>
+  <option selected  id="arl-2">Nivel II:  0,01044</option>
+  <option selected  id="arl-3">Nivel III: 0,02436</option>
+  <option selected  id="arl-4">Nivel IV: 0,0435</option>
+  <option selected  id="arl-5">Nivel V: 0,0696</option>
+
+</select>
+<input type="number" id="arl-total" step="0.001" oninput="calcular_arl1(),calcular_arl2(),
+  calcular_arl3(),calcular_arl4(),calcular_arl5()">
+<br>
+<br>  
+<label class="mb-3 text-white">TOTAL </label> <input type="number" id="pago-total"  oninput="calcular_pago_total()">
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+ 
+
+</body>
+
+<script>
+  function calcular_salud(){
+    
+      let a = parseFloat(document.getElementById("IBC").value) || 0,
+      b = parseInt(document.getElementById("salud").value) || 0;
+      document.getElementById("salud-total").value = a * 0.125;
+    }
+    function calcular_pension(){
+    
+    let a = parseFloat(document.getElementById("IBC").value) || 0,
+    b = parseInt(document.getElementById("pension").value) || 0;
+    document.getElementById("pension-total").value = a * 0.16;
+  } 
+  function calcular_arl1(){
+    
+    let a = parseFloat(document.getElementById("IBC").value) || 0,
+    b = parseInt(document.getElementById("arl-1").value) || 0;
+    document.getElementById("arl-total").value = a * 0.00522;
+  }
+  function calcular_arl2(){
+    
+    let a = parseFloat(document.getElementById("IBC").value) || 0,
+    b = parseInt(document.getElementById("arl-2").value) || 0;
+    document.getElementById("arl-total").value = a * 0.01044;
+  }
+  function calcular_arl3(){
+    
+    let a = parseFloat(document.getElementById("IBC").value) || 0,
+    b = parseInt(document.getElementById("arl-3").value) || 0;
+    document.getElementById("arl-total").value = a *  0.02436;
+  }
+  function calcular_arl4(){
+    
+    let a = parseFloat(document.getElementById("IBC").value) || 0,
+    b = parseInt(document.getElementById("arl-4").value) || 0;
+    document.getElementById("arl-total").value = a *  0.0435;
+  }
+  function calcular_arl5(){
+    
+    let a = parseFloat(document.getElementById("IBC").value) || 0,
+    b = parseInt(document.getElementById("arl-5").value) || 0;
+    document.getElementById("arl-total").value = a *  0.0696;
+  }
+  function calcular_pago_total(){
+    let a = parseFloat(document.getElementById("salud-total").value) ,
+    b = parseInt(document.getElementById("pension-total").value);
+    c = parseInt(document.getElementById("arl-total").value);
+
+    document.getElementById("pago-total").value = a + b + c;
+
+
+  }
+  
+
+</script>

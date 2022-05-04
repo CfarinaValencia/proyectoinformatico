@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    
+    <title>Crud Operation</title>
+
+  <link rel="stylesheet" href="crud.css">
+</head>
+
+<body>
+    
+    <table>
+        <tr>
+            <td>
+                <form autocomplete="off" onsubmit="onFormSubmit()">
+                    <div>
+                        <label for="productCode">Codigo</label>
+                        <input type="text" name="productCode" id="productCode" required>
+                    </div>
+                    <div>
+                        <label for="product">Nombre Empresa</label>
+                        <input type="text" name="product" id="product" required>
+                    </div>
+                    <div>
+                        <label for="qty">Valor pagado</label>
+                        <input type="number" name="qty" id="qty" min="0" max="100"required>
+                    </div>
+                    <div>
+                        <label for="perPrice">Precio del paquete</label>
+                        <input type="number" name="perPrice" id="perPrice" min="0" max="100" required>
+                    </div>
+
+                    <div class="form_action--button">
+                        <input type="submit" value="Subir">
+                        <input type="reset" value="Resetear">
+                    </div>
+                </form>
+
+                <td>
+                    <table class="list" id="storeList">
+                        <thead>
+                            <tr>
+                                <th>Codigo del Caso</th>
+                                <th>Empresa</th>
+                                <th>Valor Pagado</th>
+                                <th>Valor paquete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </td>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="crud.js"></script>
+</body>
+<footer>
+    <li><a class="nav-link scrollto active"  href="admin.html">Volver al Inicio</a></li>
+</footer>
+</html>
